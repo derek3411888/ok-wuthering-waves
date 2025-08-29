@@ -173,6 +173,7 @@ config = {
         ["src.task.SimulationTask", "SimulationTask"],
         ["src.task.TacetTask", "TacetTask"],
         ["src.task.DiagnosisTask", "DiagnosisTask"],
+        ["src.task.BulkFusionDiscardTask", "BulkFusionDiscardTask"],
     ], 'trigger_tasks': [
         ["src.task.AutoCombatTask", "AutoCombatTask"],
         ["src.task.AutoPickTask", "AutoPickTask"],
