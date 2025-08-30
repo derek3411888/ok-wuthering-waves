@@ -16,3 +16,10 @@ profiles:
     main_script: "main.py"
     requirements: "requirements.txt"
 
+  - name: "WithPlugins"
+    # Package with plugin entry to preserve upstream updates + custom features
+    main_script: "main_plugins.py"
+    requirements: "requirements.txt"
+    git_url: "https://github.com/ok-oldking/ok-ww-update.git"
+    # use_pythonw: true  # optional, mimic China profile if needed
+

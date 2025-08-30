@@ -15,6 +15,9 @@ jobs:
       PYTHONIOENCODING: 'UTF-8'
       #      SIGN_BUILD: 'true'
       SIGN_BUILD: 'false'
+      # Plugins scheme A (optional). Set these secrets in your repo to preserve plugins across updates
+      OK_PLUGINS_UPDATE_URL: ${{ secrets.OK_PLUGINS_UPDATE_URL }}
+      OK_PLUGINS_PIP_URL: ${{ secrets.OK_PLUGINS_PIP_URL }}
 
     strategy:
       matrix:
@@ -93,6 +96,14 @@ jobs:
         with:
           #          build_exe_only: true
           use_release: https://api.github.com/repos/ok-oldking/ok-wuthering-waves/releases/tags/v2.5.5
+
+      - name: pyappify build-exe-only (WithPlugins)
+        run: |
+          pyappify build-exe-only --profile WithPlugins
+
+      - name: pyappify build-setup-exe (WithPlugins)
+        run: |
+          pyappify build-setup-exe --profile WithPlugins
 
       - name: Upload unsigned EXE artifact
         if: env.SIGN_BUILD == 'true'
